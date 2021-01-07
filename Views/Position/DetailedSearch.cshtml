@@ -1,0 +1,35 @@
+﻿@using Final_Project_Group20_1.Controllers
+@{
+    ViewBag.Title = "Detailed Search";
+}
+
+<h2>Detailed Search</h2>
+<form asp-action="DisplaySearchResults" asp-controller="Position" method="get">
+    <div class="form-group">
+        <label>Company:</label>
+        <input name="SearchName" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>Industry:</label>
+        <input name="SearchIndustry" class="form-control" />
+    </div>
+    
+    <div class="form-group">
+        <label>Pick a Position Type:</label>
+        <label class="radio">@Html.RadioButton("SelectedPosition", PositionType.FT, true)Full Time</label>
+        <label class="radio">@Html.RadioButton("SelectedPosition", PositionType.I)Internship</label>
+    </div>
+
+    <div class="form-group">
+        <label>Major:</label>
+        @Html.DropDownList("SelectedMajor", (SelectList)ViewBag.AllMajors, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        <label>Location:</label>
+        <input name="SearchLocation" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-danger">Search</button>
+</form>

@@ -1,0 +1,57 @@
+﻿@model IEnumerable<Final_Project_Group20_1.Models.Application>
+
+@{
+    ViewData["Title"] = "Application Index";
+}
+
+<h2>Index</h2>
+
+
+    <table class="table">
+        <thead>
+            <tr>
+                
+                <th>
+                    @Html.DisplayNameFor(model => model.AppStatus)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Position.Company.CompanyName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Position.PositionTitle)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AppStatus)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Position.Company.CompanyName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Position.PositionTitle)
+                </td>
+                <td>
+                    @*<a asp-action="Withdraw" asp-route-id="@item.ApplicationID">Withdraw Application</a>
+        <a asp-action="ScheduleInterview" asp-route-id="@item.ApplicationID">Schedule Interview</a>*@
+                    <a asp-action="Delete" asp-route-id="@item.ApplicationID" class="btn btn-danger">Withdraw Application</a>
+                    @*<a asp-action="Delete" asp-controller="Application"  asp-route-id="@item.ApplicationID" class="btn btn-danger" >Withdraw the App</a>*@
+                    <a asp-action="ScheduleInterview" asp-controller="Application" asp-route-id="@item.ApplicationID" class="btn btn-danger">Schedule Interview</a>
+                    @*<a asp-action="AcceptApp" asp-route-id="@item.ApplicationID">AcceptApp</a>*@
+                    <a asp-action="AcceptApp" asp-controller="Application" asp-route-id="@item.ApplicationID" class="btn btn-danger">Accept the App</a>
+                    <a asp-controller="Application" asp-action="DenyApp" asp-route-id="@item.ApplicationID" class="btn btn-danger">Deny the App</a>
+                    @*<a asp-action="Create Application" asp-route-id="@item.ApplicationID" class="btn btn-danger">Create</a>*@
+                    @*Need to add if statements to make sure the right buttons are there based on deadline or application status*@
+                </td>
+            </tr>
+
+            }
+            
+
+        </tbody>
+    </table>

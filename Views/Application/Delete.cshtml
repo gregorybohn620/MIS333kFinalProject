@@ -1,0 +1,21 @@
+﻿@model Final_Project_Group20_1.Models.Application
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Delete</h2>
+
+<div>
+    <h4>Company</h4>
+    <hr />
+    <dl class="dl-horizontal">
+
+    </dl>
+
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="ApplicationID" />
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>

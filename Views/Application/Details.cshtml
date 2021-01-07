@@ -1,0 +1,29 @@
+﻿@model Final_Project_Group20_1.Models.Application
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+@*
+    @if (application status = accept)
+    {
+        @Html.ActionLink("Schedule Interview", "Index", "Interview", null, new { @class = "btn btn-primary" })
+    }
+
+    Make sure there is a button for each company/position pair that the student has applied to and has been accepted to
+*@
+
+<div>
+    <h4>Application</h4>
+    <hr />
+    <dl class="dl-horizontal"></dl>
+</div>
+
+@*Do we need to add in fields of companies that students have applied to????*@
+
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.ApplicationID">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

@@ -1,0 +1,11 @@
+﻿@{
+    ViewData["Title"] = "CSO HOME PAGE";
+}
+<h1>REGISTER USERS</h1>
+@Html.ActionLink("Register Recruiter", "RecruiterRegister", "Recruiter", null, new { @class = "btn btn-success" })
+@Html.ActionLink("Register CSO", "CSORegister", "CSO", null, new { @class = "btn btn-danger" })
+@Html.ActionLink("Register Student", "StudentRegister", "Student", null, new { @class = "btn btn-danger" })
+
+<h1> OTHER CSO FUNCTIONS</h1>
+@Html.ActionLink("Go To CSO Search", "CSOSearch", "CSO", null, new { @class = "btn btn-danger" })
+@Html.ActionLink("Deactivate Accounts Page", "DeactivateAccount", "CSO", null, new { @class = "btn btn-danger" })

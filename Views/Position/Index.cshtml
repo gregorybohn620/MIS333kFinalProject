@@ -1,0 +1,84 @@
+﻿@model IEnumerable<Final_Project_Group20_1.Models.Position>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<form asp-action="Index" asp-controller="Position" method="get">
+    <p class="form-group">
+        <a asp-action="DetailedSearch" asp-controller="Position" class="btn-success">Detailed Search</a>
+    </p>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.PositionTitle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PositionDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PositionType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Company.CompanyName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Company.CompanyIndustry)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Location)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Majors)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Deadline)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PositionTitle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PositionDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PositionType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Company.CompanyName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Company.CompanyIndustry)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Location)
+            </td>
+
+            <td>
+                @foreach (MajorPosition app in item.MajorPositions)
+                {
+                   <div> @Html.DisplayFor(modelItem => app.Major.MajorName)</div>
+                }
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Deadline)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.PositionID">Edit</a> |*
+                <a asp-controller="Position" asp-action="PositionDetails" asp-route-id="@item.PositionID">Details</a> |
+          
+                <a asp-action="Delete" asp-route-id="@item.PositionID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

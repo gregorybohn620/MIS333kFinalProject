@@ -1,0 +1,25 @@
+﻿@{
+    ViewData["Title"] = "Index: Login (or Create) Profile";
+}
+
+<h2>Pick what type of user you'd like to register as:</h2>
+@Html.ActionLink("Student", "StudentRegister", "Student", null, new { @class = "btn btn-primary" })
+
+
+@if (User.IsInRole("Student"))
+{ 
+
+    @Html.ActionLink("Go to Student Home Page", "Index", "Student", null, new { @class = "btn btn-primary" })
+
+}
+
+
+
+@if (User.IsInRole("CSO"))
+{ 
+
+    @Html.ActionLink("Go to CSO Home Page", "CSOIndex", "CSO", null, new { @class = "btn btn-primary" })
+
+}
+
+

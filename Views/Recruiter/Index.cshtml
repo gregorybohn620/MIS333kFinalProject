@@ -1,0 +1,59 @@
+﻿@model IEnumerable<Final_Project_Group20_1.Models.RecruiterSearchViewModel>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<form asp-action="Index" asp-controller="Recruiter" method="get">
+    <p class="form-group">
+        <a asp-action="DetailedSearch" asp-controller="Recruiter" class="btn-success">Student Search</a>
+    </p>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GraduationDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SelectedMajor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GPA)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model)
+{       <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GraduationDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SelectedMajor)
+            </td>
+            <td>
+                @Html.DisplayFor(modeItem => item.GPA)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.UserID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.UserID">Details</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

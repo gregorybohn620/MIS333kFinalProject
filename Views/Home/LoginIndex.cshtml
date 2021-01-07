@@ -1,0 +1,28 @@
+﻿@{
+    ViewData["Title"] = "Index";
+}
+
+@if (User.Identity.IsAuthenticated)
+{
+    if (User.IsInRole("Student"))
+    {
+        @Html.ActionLink("Company Positions", "Index", "RoleAdmin", null, new { @class = "btn btn-primary" })
+        @Html.ActionLink("Applications", "Index", "RoleAdmin", null, new { @class = "btn btn-success" })
+        @Html.ActionLink("Interviews", "Index", "RoleAdmin", null, new { @class = "btn btn-danger" })
+
+    }
+
+    if (User.IsInRole("Recruiter"))
+    {
+        @Html.ActionLink("CompanyPositions", "Index", "RoleAdmin", null, new { @class = "btn btn-primary" })
+        @Html.ActionLink("Applications", "Index", "RoleAdmin", null, new { @class = "btn btn-success" })
+        @Html.ActionLink("Interviews", "Index", "RoleAdmin", null, new { @class = "btn btn-danger" })
+    }
+
+    if (User.IsInRole("CSO"))
+    {
+        @Html.ActionLink("CompanyPositions", "Index", "RoleAdmin", null, new { @class = "btn btn-primary" })
+        @Html.ActionLink("Applications", "Index", "RoleAdmin", null, new { @class = "btn btn-success" })
+        @Html.ActionLink("Interviews", "Index", "RoleAdmin", null, new { @class = "btn btn-danger" })
+    }
+}

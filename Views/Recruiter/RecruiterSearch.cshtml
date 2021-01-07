@@ -1,0 +1,50 @@
+﻿@model Final_Project_Group20_1.Models.RecruiterSearchViewModel
+@{
+    ViewData["Title"] = "RecruiterSearch";
+}
+
+<h2>RecruiterSearch</h2>
+
+@using Final_Project_Group20_1.Controllers
+@{
+    ViewBag.Title = "Detailed Search";
+}
+
+<h2>Detailed Search</h2>
+<form asp-action="RecruiterSearch" asp-controller="Recruiter" method="get">
+    <div class="form-group">
+        <label>Student First Name:</label>
+        <input name="SearchFirstName" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>Student Last Name:</label>
+        <input name="SearchLastName" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>Graduation Date:</label>
+        <input name="SearchGraduationDate" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>Major:</label>
+        @Html.DropDownList("SelectedMajor", (SelectList)ViewBag.AllMajors, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        <label>Pick a Position Type:</label>
+        <label class="radio">@Html.RadioButton("SelectedPosition", PositionType.FT, true)Full Time</label>
+        <label class="radio">@Html.RadioButton("SelectedPosition", PositionType.I)Internship</label>
+    </div>
+
+    <div class="form-group">
+        <label>GPA:</label>
+        <input name="SearchGPA" class="form-control" />
+    </div>
+    
+
+
+
+    <button type="submit" class="btn btn-danger">Search</button>
+</form>

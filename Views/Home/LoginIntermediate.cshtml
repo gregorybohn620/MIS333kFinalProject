@@ -1,0 +1,22 @@
+﻿@{
+    ViewData["Title"] = "This is an intermediate post-login page and will direct you to the propper account type home page";
+}
+
+<h2>click the button below:</h2>
+@if (User.IsInRole("CSO"))
+ {
+    @Html.ActionLink("Student Button", "StudentHome", "Student", null, new { @class = "btn btn-primary" })
+ }
+
+
+@if (User.IsInRole("CSO"))
+ {
+    @Html.ActionLink("CSO Button", "CSOHome", "CSO", null, new { @class = "btn btn-primary" })
+ }
+
+
+@if (User.IsInRole("CSO"))
+ {
+
+    @Html.ActionLink("Recruiter Button", "RecruiterHome", "Recruiter", null, new { @class = "btn btn-primary" })
+ } 

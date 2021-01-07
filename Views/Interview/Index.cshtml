@@ -1,0 +1,56 @@
+﻿@model IEnumerable<Final_Project_Group20_1.Models.Interview>
+@{
+    ViewData["Title"] = "Index";
+}
+<h2>Index</h2>
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.RoomNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.InterviewTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.InterviewerName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IntervieweeName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SlotStatus)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.RoomNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.InterviewTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.InterviewerName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IntervieweeName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SlotStatus)
+            </td>
+            <td>
+                <a asp-action="ClaimInterviewSlot" asp-route-id="@item.InterviewID">Claim Interview Slot</a> |
+                <a asp-action="Edit" asp-route-id="@item.InterviewID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.InterviewID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.InterviewID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
